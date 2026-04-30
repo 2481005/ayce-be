@@ -16,7 +16,12 @@ const app = express();
 testConnection();
 
 // --- 1. Middleware ---
-app.use(cors()); // Mengizinkan akses dari domain lain
+app.use(cors({
+    origin: '*', // Mengizinkan semua domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Mengizinkan semua method HTTP
+    allowedHeaders: ['Content-Type', 'Authorization'] // Mengizinkan header umum
+}));
+ // Mengizinkan akses dari domain lain
 app.use(express.json()); // Parsing body request format JSON
 app.use(express.urlencoded({ extended: true })); // Parsing url-encoded
 
