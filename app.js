@@ -15,6 +15,15 @@ const transaksiRoutes = require('./src/Routes/TransactionRoute');
 const app = express();
 testConnection();
 
+const swaggerOptions = {
+  customCssUrl: 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css',
+  customJs: [
+    'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.js',
+  ],
+};
+
+
 // --- 1. Middleware ---
 app.use(cors({
     origin: '*', // Mengizinkan semua domain
